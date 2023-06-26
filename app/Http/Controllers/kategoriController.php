@@ -24,7 +24,9 @@ class kategoriController extends Controller
     
     public function store(Request $request)
     {
+        $barang = $request->input("barang_id");
         $kategori = kategori::create($request->all());
+        $kategori->barang()->sync($barang);
 
         if($kategori){
             Session::flash('status','Sukses');
@@ -47,6 +49,8 @@ class kategoriController extends Controller
     public function update(Request $request, $id)
     {
         $kategori = kategori::findOrFail($id);
+        $barang = $request->input("barang_id");
+        $kategori->barang()->sync($barang);
 
         $kategori->update($request->all());
         

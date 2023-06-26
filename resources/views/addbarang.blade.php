@@ -1,8 +1,8 @@
 @include('navbar')
 
-<h1>Add Barang</h1>
 
-<div class="mt-5 ml-5 col-5">
+<div class="mt-2 ml-5 col-5 mx-auto">
+    <h1>Add barang</h1>
     <form action="barang" method="POSt">
         @csrf
         <div class="mb-3">
@@ -41,6 +41,11 @@
                 <option value="{{$merek->id}}">{{$merek->merek}}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="mb-3"> <label ><b>Kategori</b></label><br>
+            @foreach ($kategori as $index => $kategori)
+            <input type="checkbox" name="barang_id[]" value="{{ $kategori->id }}">{{ $kategori->kategori }}<br> 
+            @endforeach
         </div>
         
 

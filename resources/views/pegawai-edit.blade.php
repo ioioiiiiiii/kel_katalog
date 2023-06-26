@@ -1,6 +1,7 @@
 @include('navbar')
 
 <div class="mt-5 ml-5 col-5 m-auto">
+    <h1>Pegawai Edit</h1>
     <form action="/pegawai/{{$pegawai->id}}" method="POST" >
         @method('PUT')
         @csrf

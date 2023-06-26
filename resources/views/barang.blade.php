@@ -1,5 +1,5 @@
 @include('navbar')
-<div class="my-3">
+<div class="my-1">
     <a href="addbarang" class= "btn btn-dark ml-5"> Add Barang</a>
 </div>
 
@@ -9,7 +9,7 @@
         {{Session::get('message')}}
     </div>
 @endif
-        <table class="table">
+        <table class="table" >
             <thead>
                 <tr>
                     <th>id</th>
@@ -19,7 +19,7 @@
                     <th>merek</th>
                     <th>harga_jual</th>
                     <th>pegawai_id</th>
-                    <th>Kategori</th>
+                    <th>kategori</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -34,17 +34,18 @@
                     <td>{{ $data -> harga_jual }}</td>
                     <td>{{ $data -> pegawai -> nama }}</td>
                     <td>
-                        @foreach ($data->kategori as $kategori)
-                            -{{$kategori ->kategori}} <br>
+                        @foreach ($data->kategori as $item)
+                            -{{$item->kategori}} <br>
                         @endforeach
                     </td>
+                    
                     <td>
                     <a href="edit/{{$data->id}}"class="btn btn-info"> Edit</a>
                     <form class="d-inline" action="/barang/{{$data->id}}" method="post">
                     @csrf
                     @method('delete')
                     <button type="submit" name="submit" class="btn btn-danger" onclick= "return confirm('Apakah anda yakin ingin menghapus?')">Delete</button>
-                
+                    </form>
                     </td>
 
                 </tr>

@@ -13,7 +13,7 @@ class pegawaiController extends Controller
 {
     public function index()
      {
-        $pegawai = pegawai::with(['barang','user'])->get();
+        $pegawai = pegawai::with(['barang'])->get();
         return view('pegawai', ["pegawai" => $pegawai]);
     }
     public function create(){
@@ -34,14 +34,11 @@ class pegawaiController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $pegawai = pegawai::with( ['barang','user'])->findOrFail($id);
+        $pegawai = pegawai::with( ['barang'])->findOrFail($id);
         $barang = barang::all();
         $user = user::all();
-        if($pegawai){
-            Session::flash('status','Sukses');
-            Session::flash('message','Data Berhasil diUpdate');
-        }
-        return view('pegawai-edit', ['pegawai' => $pegawai, 'barang' => $barang, 'user'=>$user]);
+        
+        return view('pegawai-edit', ['pegawai' => $pegawai, 'barang' => $barang, ]);
     }
 
     public function update(Request $request, $id)
@@ -49,6 +46,10 @@ class pegawaiController extends Controller
         $pegawai = pegawai::findOrFail($id);
 
         $pegawai->update($request->all());
+        if($pegawai){
+            Session::flash('status','Sukses');
+            Session::flash('message','Data Berhasil diUpdate');
+        }
         
         return redirect(('/pegawai'));
     }

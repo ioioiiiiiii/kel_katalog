@@ -1,7 +1,8 @@
-@extends('layouts.app')
-
 <!DOCTYPE html>
 <html>
+
+@extends('layout-1')
+
     @section('content')
     <head>
         <title>Camille Beauty</title>

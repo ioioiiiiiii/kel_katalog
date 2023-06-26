@@ -18,8 +18,8 @@
                     <td>{{ $kategori -> id }}</td>
                     <td>{{ $kategori -> kategori }}</td>
                     <td>
-                        @foreach($kategori->barang as $kategori)
-                            -{{$kategori->nama}} <br>
+                        @foreach($kategori->barang as $barang)
+                            -{{$barang->nama}} <br>
                         @endforeach
                     </td>
                     <td>

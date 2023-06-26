@@ -29,7 +29,11 @@ class barangController extends Controller
     
     public function store(Request $request)
    {
-       $barang = barang::create($request->all());
+    
+        $kategori = $request->input("kategori_id");
+        
+        $barang = barang::create($request->all());
+        $barang->kategori()->sync($kategori);
         if($barang){
             Session::flash('status','Sukses');
             Session::flash('message','Penambahan data Berhasil');
@@ -54,17 +58,16 @@ class barangController extends Controller
     public function update(Request $request, $id)
     {
         $barang = barang::findOrFail($id);
-
+        $kategori = $request->input("kategori_id");
         $barang->update($request->all());
+        $barang->kategori()->sync($kategori);
         
         return redirect(('/barang'));
     }
 
     public function destroy($id)
     {
-        $barang = barang::find($id);
-
-        $barang::destroy($id);
+        $barang = barang::find($id)->delete();
 
         if($barang){
             Session::flash('status', 'Berhasil');

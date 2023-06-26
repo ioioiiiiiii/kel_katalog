@@ -1,8 +1,9 @@
 @include('navbar')
 
+
+<div class="mt-5 ml-5 col-5 mx-auto">
 <h1>Add pegawai</h1>
 
-<div class="mt-5 ml-5 col-5">
     <form action="pegawai" method="POSt">
         @csrf
         <div class="mb-3">

@@ -2,7 +2,7 @@
 
 
 <div class="my-3">
-    <a href="merek-add" class= "btn btn-dark ml-5"> Add Pegawai</a>
+    <a href="merek-add" class= "btn btn-dark ml-5"> Add Merek</a>
 </div>
 
 @if(Session::has('status'))
@@ -15,6 +15,7 @@
                 <tr>
                     <th>id</th>
                     <th>Merek</th>
+                    <th>Barang</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -23,6 +24,11 @@
                 <tr>
                     <td>{{ $data -> id }}</td>
                     <td>{{ $data -> merek }}</td>
+                    <td>
+                        @foreach ($data->barang as $barang)
+                            {{$barang->nama}} <br>
+                        @endforeach
+                    </td>                    
                     <td>
                         <a href="merek-edit/{{$data->id}}"class="btn btn-info"> Edit</a>
                         <form class="d-inline" action="/merek/{{$data->id}}" method="post">
