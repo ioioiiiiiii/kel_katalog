@@ -6,8 +6,8 @@
         @method('PUT')
         @csrf
         <div class="mb-3">
-            <label for="pegawai">Nama</label>
-            <input type="text" class="form-control" id="pegawai" name="pegawai" value="{{$pegawai->nama}}" required>
+            <label for="nama">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama" value="{{$pegawai->nama}}" required>
         </div>
         <div class="mb-3">
             <label for="alamat">Nama</label>

@@ -15,6 +15,7 @@
         
             <thead>
                 <tr>
+                    <th>no</th>
                     <th>id</th>
                     <th>email</th>
                     <th>password</th>
@@ -24,6 +25,7 @@
             <tbody>
                 @foreach($user as $index => $user)
                 <tr>
+                    <td>{{$loop->iteration}}</td>
                     <td>{{ $user -> id }}</td>
                     <td>{{ $user -> email }}</td>
                     <td>{{ $user -> password }}</td>

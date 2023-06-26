@@ -13,6 +13,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>no</th>
                     <th>id</th>
                     <th>Merek</th>
                     <th>Barang</th>
@@ -22,6 +23,7 @@
             <tbody>
                 @foreach($merek as $data)
                 <tr>
+                    <td>{{$loop->iteration}}</td>
                     <td>{{ $data -> id }}</td>
                     <td>{{ $data -> merek }}</td>
                     <td>

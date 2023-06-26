@@ -12,6 +12,7 @@
         <table class="table" >
             <thead>
                 <tr>
+                    <th>no</th>
                     <th>id</th>
                     <th>nama</th>
                     <th>stok</th>
@@ -26,6 +27,7 @@
             <tbody>
                 @foreach($barang as $index => $data)
                 <tr>
+                    <td>{{$loop->iteration}}</td>
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $data -> nama }}</td>
                     <td>{{ $data -> stok }}</td>

@@ -13,6 +13,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>no</th>
                     <th>id</th>
                     <th>nama</th>
                     <th>alamat</th>
@@ -23,6 +24,7 @@
             <tbody>
                 @foreach($pegawai as $data)
                 <tr>
+                    <td>{{$loop->iteration}}</td>
                     <td>{{ $data -> id }}</td>
                     <td>{{ $data -> nama }}</td>
                     <td>{{ $data -> alamat }}</td>

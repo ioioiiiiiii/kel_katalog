@@ -6,6 +6,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>no</th>
                     <th>id</th>
                     <th>kategori</th>
                     <th>nama_barang</th>
@@ -15,6 +16,7 @@
             <tbody>
                 @foreach($kategori as $index => $kategori)
                 <tr>
+                    <td>{{$loop->iteration}}</td>
                     <td>{{ $kategori -> id }}</td>
                     <td>{{ $kategori -> kategori }}</td>
                     <td>
